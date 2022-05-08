@@ -1,6 +1,6 @@
 <div>
 
-    <form class="content"  >
+    <form class="content"  (ngSubmit)="listaDocente()">
 
 
     <div class="submit-form" >
@@ -68,9 +68,18 @@
                             <th>Nombre</th>
                             <th>DNI</th>
                             <th>Ubigeo</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngFor="let aux of docentes">
+                            <td>{{aux.idDocente}}</td>
+                            <td>{{aux.nombre}}</td>
+                            <td>{{aux.dni}}</td>
+                            <td>{{aux.ubigeo!.departamento}}-{{aux.ubigeo!.provincia}}-{{aux.ubigeo!.distrito}}</td>
+                            <td>{{aux.estado==1?"Activo":"Inactivo"}}</td>
+
+                        </tr>
                             
 
                     </tbody>

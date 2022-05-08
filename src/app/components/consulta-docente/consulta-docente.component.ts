@@ -48,6 +48,14 @@ export class ConsultaDocenteComponent implements OnInit {
       this.selDistrito = -1;
   }
 
+  listaDocente(){
+    this.docenteService.listaDocente(this.nombre,this.dni,this.selDistrito).subscribe(
+            (x) => {
+              this.docentes = x.data;
+              alert(x.mensaje);
+            }
+    );
+  }
 
   ngOnInit(): void {}
 
