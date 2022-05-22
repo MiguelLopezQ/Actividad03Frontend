@@ -17,6 +17,7 @@ export class ConsultaDocenteComponent implements OnInit {
   selDepartamento:string = "-1"; 
   selProvincia:string = "-1"; 
   selDistrito:number = -1;
+  estado:boolean=true;
 
   
   //Ubigeo
@@ -49,7 +50,7 @@ export class ConsultaDocenteComponent implements OnInit {
   }
 
   listaDocente(){
-    this.docenteService.listaDocente(this.nombre,this.dni,this.selDistrito).subscribe(
+    this.docenteService.listaDocente(this.nombre,this.dni,this.selDistrito,this.estado?1:0).subscribe(
             (x) => {
               this.docentes = x.data;
               alert(x.mensaje);
